@@ -1,22 +1,41 @@
 /*  2A  */
-let soldItems = 0;
+let itemsSold = 0;
 for (let i = 0; i < inventory.length; i++){
-    soldItems += inventory[i].sold;
+    itemsSold += inventory[i].sold;
 }
 
-console.log(soldItems);
+console.log(itemsSold);
+
 
 /*  2B  */
 const itemsSoldElement = document.getElementById("items-sold");
 itemsSoldElement.innerHTML = `
-    <h3 class="items-sold">Items Sold</h3>
-    <p class="items-sold">${soldItems}</p>  
+    <h3>Items Sold:</h3>
+    <p class="items-sold">${itemsSold}</p>  
 `;
 
+
 /*  2C  */
-let totalOriginalStock = 0;
+let itemsBought = 0;
 for (let i = 0; i < inventory.length; i++){
-    totalOriginalStock += inventory[i].originalStock;
+    itemsBought += inventory[i].originalStock;
 }
 
-console.log(totalOriginalStock);
+console.log(itemsBought);
+
+
+/*  2D  */
+const itemsBoughtElement = document.getElementById("items-bought");
+itemsBoughtElement.innerHTML = `
+    <h3>Items Bought:</h3>
+    <p class="items-bought">${itemsBought}</p>
+`;
+
+
+/*  2E  */
+let itemsToSell = itemsBought - itemsSold;
+const itemsToSellElement = document.getElementById("items-to-sell");
+itemsToSellElement.innerHTML = `
+  <h3>Items to Sell:</h3>
+  <p class="items-to-sell">${itemsToSell}</p>  
+`;

@@ -1,3 +1,11 @@
 .items-sold {
     color: green;
 }
+
+.items-bought {
+    color: blue;
+}
+
+.items-to-sell {
+    color: red;
+}
