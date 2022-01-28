@@ -34,14 +34,15 @@ console.log(getAvailableSizes(inventory[7].availableSizes));
 
 
 /*  4D  */
-function displayItemInfo(item) {
-    const itemInfoElement = document.getElementById("tv-info");
-    itemInfoElement.innerHTML += `
-        <p>${getInventoryItemName(item)}</p>
-        <p>${formatItemPrice(item.price)}</p>
-        <p>${getAvailableSizes(item.availableSizes)}</p>
-    `;
-}
+
+// function displayItemInfo(item) {
+//     const itemInfoElement = document.getElementById("tv-info");
+//     itemInfoElement.innerHTML += `
+//         <p>${getInventoryItemName(item)}</p>
+//         <p>${formatItemPrice(item.price)}</p>
+//         <p>${getAvailableSizes(item.availableSizes)}</p>
+//     `;
+// }
 
 function getItemInfo(item) {
     // This function returns list-items which contain all the info for a single item.
@@ -56,20 +57,17 @@ function getItemInfo(item) {
     return itemInfoElement;
 }
 
-// displayItemInfo(inventory[3]);
 
 /*  4E  */
 function displayAllItemsInfoList(itemList) {
     // Creat an unordered list inside tv-info div
     const itemInfoElement = document.getElementById("tv-info");
-    const listElement = document.createElement("ul");
-    listElement.setAttribute("id", "item-info-list");
-    itemInfoElement.appendChild(listElement);
+    const unorderedListElement = document.createElement("ul");
+    itemInfoElement.appendChild(unorderedListElement);
 
     for (let i = 0; i < itemList.length; i++) {
         // Add list-items to the unordered list.
-        listElement.appendChild(getItemInfo(itemList[i]));
+        unorderedListElement.appendChild(getItemInfo(itemList[i]));
     }
 }
 
-// displayAllItemsInfo(inventory);
