@@ -74,29 +74,29 @@ function showAmbilightItems(itemList) {
 // ADD EVENT LISTENERS
 showAllItemsButton.addEventListener("click", () => {
     clearElement("tv-info");
-    displayAllItemsInfo(inventory)
+    displayAllItemsInfoList(inventory)
 });
 
 sortPriceButton.addEventListener("click", () => {
     clearElement("tv-info");
     sortPrice(inventory);
-    displayAllItemsInfo(inventory);
+    displayAllItemsInfoList(inventory);
 })
 
 sortNameButton.addEventListener("click", () => {
     clearElement("tv-info");
     sortName(inventory);
-    displayAllItemsInfo(inventory);
+    displayAllItemsInfoList(inventory);
 })
 
 showAmbilightButton.addEventListener("click", () => {
     clearElement("tv-info");
-    displayAllItemsInfo(showAmbilightItems(inventory));
+    displayAllItemsInfoList(showAmbilightItems(inventory));
 })
 
 showSoldOutButton.addEventListener("click", () => {
     clearElement("tv-info");
-    displayAllItemsInfo(soldOutItems(inventory))
+    displayAllItemsInfoList(soldOutItems(inventory))
 });
 
 

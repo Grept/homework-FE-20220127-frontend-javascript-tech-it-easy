@@ -43,19 +43,32 @@ function displayItemInfo(item) {
     `;
 }
 
+function getItemInfo(item) {
+    // This function returns list-items which contain all the info for a single item.
+    const itemInfoElement = document.createElement("li");
+
+    itemInfoElement.innerHTML = `
+        <h4 class="item-name">${getInventoryItemName(item)}</h4>
+        <p class="item-price">${formatItemPrice(item.price)}</p>
+        <p class="item-sizes">${getAvailableSizes(item.availableSizes)}</p>
+    `;
+
+    return itemInfoElement;
+}
+
 // displayItemInfo(inventory[3]);
 
 /*  4E  */
-function displayAllItemsInfo(itemList) {
+function displayAllItemsInfoList(itemList) {
+    // Creat an unordered list inside tv-info div
+    const itemInfoElement = document.getElementById("tv-info");
+    const listElement = document.createElement("ul");
+    listElement.setAttribute("id", "item-info-list");
+    itemInfoElement.appendChild(listElement);
+
     for (let i = 0; i < itemList.length; i++) {
-        displayItemInfo(itemList[i]);
-
-        // Separate each item with a line for readability
-        if (i !== itemList.length - 1) {
-            const itemInfoElement = document.getElementById("tv-info");
-            itemInfoElement.innerHTML += "<p>-----------------------------------------</p>"
-        }
-
+        // Add list-items to the unordered list.
+        listElement.appendChild(getItemInfo(itemList[i]));
     }
 }
 
