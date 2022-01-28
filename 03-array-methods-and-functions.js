@@ -12,14 +12,14 @@
 
 /*  3B   */
 function listItemBrandsOnPage(itemList, elementID) {
-   const inventoryBrands = itemList.map((item) => {
-      return item.brand;
-   });
+    const inventoryBrands = itemList.map((item) => {
+        return item.brand;
+    });
 
-   const inventoryBrandsElement = document.getElementById(elementID);
-   for (let i = 0; i < inventoryBrands.length; i++) {
-      inventoryBrandsElement.innerHTML += `<p>${inventoryBrands[i]}</p>`;
-   }
+    const inventoryBrandsElement = document.getElementById(elementID);
+    for (let i = 0; i < inventoryBrands.length; i++) {
+        inventoryBrandsElement.innerHTML += `<li>${inventoryBrands[i]}</li>`;
+    }
 }
 
 listItemBrandsOnPage(inventory, "tv-brands");

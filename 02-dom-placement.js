@@ -1,6 +1,6 @@
 /*  2A  */
 let itemsSold = 0;
-for (let i = 0; i < inventory.length; i++){
+for (let i = 0; i < inventory.length; i++) {
     itemsSold += inventory[i].sold;
 }
 
@@ -17,7 +17,7 @@ itemsSoldElement.innerHTML = `
 
 /*  2C  */
 let itemsBought = 0;
-for (let i = 0; i < inventory.length; i++){
+for (let i = 0; i < inventory.length; i++) {
     itemsBought += inventory[i].originalStock;
 }
 
