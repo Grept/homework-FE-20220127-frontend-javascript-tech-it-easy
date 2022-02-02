@@ -1,0 +1,51 @@
+h1 {
+    color: blue;
+}
+
+.smiley-logo {
+    color: orange;
+}
+
+h2 {
+    color: blue;
+}
+
+.items-sold {
+    color: green;
+}
+
+.items-bought {
+    color: blue;
+}
+
+.items-to-sell {
+    color: red;
+}
+
+button {
+    font-size: 16px;
+    margin: 2px;
+}
+
+button:hover {
+    background-color: navajowhite;
+}
+
+button:focus {
+    background-color: orange;
+}
+
+ul {
+    list-style-type: none;
+    list-style-position: inside;
+    padding: 2px;
+    margin: 2px;
+}
+
+ul li {
+    background-color: navajowhite;
+}
+
+.item-name {
+    font-weight: bold;
+}
