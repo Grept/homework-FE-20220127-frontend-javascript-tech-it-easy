@@ -63,9 +63,9 @@ function sortPrice(itemList) {
 
 function sortName(itemList) {
     itemList.sort((a, b) => {
-        if (a.name < b.name) {
+        if (getInventoryItemName(a) < getInventoryItemName(b)) {
             return -1;
-        } else if (a.name > b.name) {
+        } else if (getInventoryItemName(a) > getInventoryItemName(b)) {
             return 1;
         } else return 0;
     })
