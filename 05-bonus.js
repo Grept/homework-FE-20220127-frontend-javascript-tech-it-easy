@@ -2,6 +2,7 @@
 // GET PARENT ELEMENT
 const itemInfo = document.getElementById("tv-info-buttons");
 
+
 // CREATE BUTTONS
 const showAllItemsButton = document.createElement("button");
 showAllItemsButton.setAttribute("class", "show-all");
@@ -14,6 +15,10 @@ sortPriceButton.textContent = "Sort by Price";
 const sortNameButton = document.createElement("button");
 sortNameButton.setAttribute("class", "sort-name-button")
 sortNameButton.textContent = "Sort by Name"
+
+const sortStockButton = document.createElement("button");
+sortStockButton.setAttribute("class", "sort-stock-button")
+sortStockButton.textContent = "Sort by Stock"
 
 const showAmbilightButton = document.createElement("button");
 showAmbilightButton.setAttribute("class", "show-ambilight");
@@ -28,12 +33,14 @@ showSoldOutButton.textContent = "Show Sold Out TVs";
 itemInfo.appendChild(showAllItemsButton);
 itemInfo.appendChild(sortPriceButton);
 itemInfo.appendChild(sortNameButton);
+itemInfo.appendChild(sortStockButton)
 itemInfo.appendChild(showAmbilightButton);
 itemInfo.appendChild(showSoldOutButton);
 
+
 // DECLARE FUNCTIONS FOR BUTTONS
-function clearElement(elemendID) {
-    document.getElementById(elemendID).innerHTML = "";
+function clearElement(elementID) {
+    document.getElementById(elementID).innerHTML = "";
 }
 
 function soldOutItems(itemList) {
@@ -64,6 +71,16 @@ function sortName(itemList) {
     })
 }
 
+function sortStock(itemList) {
+    itemList.sort((a, b) => {
+        if ((a.originalStock - a.sold) > (b.originalStock - b.sold)) {
+            return -1;
+        } else if ((a.originalStock - a.sold) < (b.originalStock - b.sold)) {
+            return 1;
+        } else return 0;
+    })
+}
+
 function showAmbilightItems(itemList) {
     return itemList.filter((item) => {
         return item.options.ambiLight;
@@ -86,6 +103,12 @@ sortPriceButton.addEventListener("click", () => {
 sortNameButton.addEventListener("click", () => {
     clearElement("tv-info");
     sortName(inventory);
+    displayAllItemsInfoList(inventory);
+})
+
+sortStockButton.addEventListener("click", () => {
+    clearElement("tv-info");
+    sortStock(inventory);
     displayAllItemsInfoList(inventory);
 })
 

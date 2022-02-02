@@ -22,6 +22,8 @@ function getAvailableSizes(itemSizeList) {
     let availableSizesString = "";
     for (let i = 0; i < itemSizeList.length; i++) {
         availableSizesString += `${itemSizeList[i]} inches (${itemSizeList[i] * 2.54} cm)`;
+
+        // Check if we need to add " | " (we dont add at the end)
         if (i !== (itemSizeList.length - 1)) {
             availableSizesString += " | ";
         }
@@ -34,36 +36,28 @@ console.log(getAvailableSizes(inventory[7].availableSizes));
 
 
 /*  4D  */
-
-// function displayItemInfo(item) {
-//     const itemInfoElement = document.getElementById("tv-info");
-//     itemInfoElement.innerHTML += `
-//         <p>${getInventoryItemName(item)}</p>
-//         <p>${formatItemPrice(item.price)}</p>
-//         <p>${getAvailableSizes(item.availableSizes)}</p>
-//     `;
-// }
-
 function getItemInfo(item) {
     // This function returns list-items which contain all the info for a single item.
-    const itemInfoElement = document.createElement("li");
+    const itemInfoListElement = document.createElement("li");
 
-    itemInfoElement.innerHTML = `
+    // Added info on current stock
+    itemInfoListElement.innerHTML = `
         <h4 class="item-name">${getInventoryItemName(item)}</h4>
         <p class="item-price">${formatItemPrice(item.price)}</p>
         <p class="item-sizes">${getAvailableSizes(item.availableSizes)}</p>
+        <p class="item-stock"><strong>Stock:</strong> ${item.originalStock - item.sold}</p>
     `;
 
-    return itemInfoElement;
+    return itemInfoListElement;
 }
 
 
 /*  4E  */
 function displayAllItemsInfoList(itemList) {
     // Creat an unordered list inside tv-info div
-    const itemInfoElement = document.getElementById("tv-info");
+    const itemInfoContainerElement = document.getElementById("tv-info");
     const unorderedListElement = document.createElement("ul");
-    itemInfoElement.appendChild(unorderedListElement);
+    itemInfoContainerElement.appendChild(unorderedListElement);
 
     for (let i = 0; i < itemList.length; i++) {
         // Add list-items to the unordered list.
